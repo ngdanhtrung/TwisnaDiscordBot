@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/ngdanhtrung/TwisnaDiscordBot/issues"
   },
-  "homepage": "https://github.com/ngdanhtrung/TwisnaDiscordBot#readme"
+  "homepage": "https://github.com/ngdanhtrung/TwisnaDiscordBot#readme",
+  "dependencies": {
+    "discord.js": "^12.5.1"
+  }
 }
