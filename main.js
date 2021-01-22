@@ -24,12 +24,17 @@ client.once('ready', () => {
 client.on('message', message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
-    const args = message.content.slice(prefix.length).split(/ + /);
+    const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
     if (command === 'ping') {
         //message.channel.send('Pong!');
         client.commands.get('ping').execute(message, args);
+    } else if (command === 'setmod') {
+        //message.channel.send('this is a set Mod command!');
+        client.commands.get('setMod').execute(message, args);
+    } else if (command === 'avatar') {
+        client.commands.get('avatar').execute(message, args, Discord);
     }
 })
 
