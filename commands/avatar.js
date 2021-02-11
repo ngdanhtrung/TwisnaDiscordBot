@@ -1,5 +1,6 @@
 module.exports = {
     name: "avatar",
+    aliases: [],
     description: "this is a avatar command!",
     execute(client, message, args, Discord) {
         const member = message.mentions.users.first() || message.author;
