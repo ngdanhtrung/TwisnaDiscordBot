@@ -1,6 +1,7 @@
 module.exports = {
     name: "ping",
     aliases: [],
+    permissions: ["SEND_MESSAGES"],
     description: "this is a ping command!",
     execute(client, message, args) {
         // message.channel.send("Pong!");
