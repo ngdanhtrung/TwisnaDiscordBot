@@ -3,13 +3,15 @@ module.exports = {
     aliases: [],
     permissions: ["SEND_MESSAGES"],
     description: "send invte link of BOT",
-    execute(client, message, args, Discord) {
+    async execute(client, message, args, Discord) {
         const avatarURL = client.user.displayAvatarURL({
             format: "png",
             dynamic: true,
             size: 1024,
         });
-        const inviteURL = "https://discord.com/oauth2/authorize?client_id=800473966116470834&scope=bot&permissions=8";
+        const inviteURL = await client.generateInvite({
+            permissions: ["ADMINISTRATOR"],
+        });
         const newEmbed = new Discord.MessageEmbed()
             .setColor("#F4D18F")
             .setTitle("Hi! I'm Twisna Bot!")
