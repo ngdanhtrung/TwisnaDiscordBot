@@ -41,20 +41,21 @@ module.exports = (Discord, client, message) => {
         "MANAGE_WEBHOOKS",
         "MANAGE_EMOJIS",
     ];
-
-    if (command.permissions.length) {
-        let invalidPerms = [];
-        for (const perm of command.permissions) {
-            if (!validPermissions.includes(perm)) {
-                return console.log(`Invalid Permissions ${perm}`);
+    if (command) {
+        if (command.permissions.length) {
+            let invalidPerms = [];
+            for (const perm of command.permissions) {
+                if (!validPermissions.includes(perm)) {
+                    return console.log(`Invalid Permissions ${perm}`);
+                }
+                if (!message.member.hasPermission(perm)) {
+                    invalidPerms.push(perm);
+                }
             }
-            if (!message.member.hasPermission(perm)) {
-                invalidPerms.push(perm);
+            if (invalidPerms.length) {
+                // return message.channel.send(`Missing Permissions: \`${invalidPerms}\``);
+                return message.channel.send("You don't have the right permissions to use this command!");
             }
-        }
-        if (invalidPerms.length) {
-            // return message.channel.send(`Missing Permissions: \`${invalidPerms}\``);
-            return message.channel.send("You don't have the right permissions to use this command!");
         }
     }
 
