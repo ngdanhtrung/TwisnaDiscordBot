@@ -3,7 +3,7 @@ module.exports = {
     aliases: [],
     permissions: ["SEND_MESSAGES"],
     description: "send invte link of BOT",
-    async execute(client, message, args, Discord) {
+    async execute(message, args, cmd, client, Discord) {
         const avatarURL = client.user.displayAvatarURL({
             format: "png",
             dynamic: true,
@@ -15,19 +15,12 @@ module.exports = {
         const newEmbed = new Discord.MessageEmbed()
             .setColor("#F4D18F")
             .setTitle("Hi! I'm Twisna Bot!")
-            .setURL(
-                inviteURL
-            )
-            .setAuthor(
-                "Twisna Bot!",
-                avatarURL
-            )
+            .setURL(inviteURL)
+            .setAuthor("Twisna Bot!", avatarURL)
             .setDescription(
                 `Nice to meet you! Here is my [invite link](${inviteURL})`
             )
-            .setThumbnail(
-                avatarURL
-            );
+            .setThumbnail(avatarURL);
         message.channel.send(newEmbed);
     },
 };

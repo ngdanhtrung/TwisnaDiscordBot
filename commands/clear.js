@@ -3,7 +3,7 @@ module.exports = {
     aliases: ["purge"],
     permissions: ["ADMINISTRATOR", "MANAGE_MESSAGES"],
     description: "this is a clear command!",
-    async execute(client, message, args) {
+    async execute(message, args, cmd, client, Discord) {
         if (!args[0])
             return message.reply(
                 "Please enter the amount of messages that you want to clear!"

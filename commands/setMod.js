@@ -3,7 +3,7 @@ module.exports = {
     aliases: ["mod"],
     permissions: ["MANAGE_ROLES"],
     description: "this is a set Mod command!",
-    execute(client, message, args, Discord) {
+    execute(message, args, cmd, client, Discord) {
         let role = message.guild.roles.cache.find((r) => r.name === "Mod"); //This will find role's name and use it's id
 
         if (message.member.roles.cache.some((r) => r.name === "Mod")) {

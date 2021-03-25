@@ -59,5 +59,12 @@ module.exports = (Discord, client, message) => {
         }
     }
 
-    if (command) command.execute(client, message, args, Discord);
+    if (command) {
+        try {
+            command.execute(message, args, cmd, client, Discord);
+        } catch (err) {
+            message.reply("There was an error trying to execute this command!")
+            console.log(err);
+        }
+    }
 };

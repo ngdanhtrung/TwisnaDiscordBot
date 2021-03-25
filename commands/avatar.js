@@ -3,7 +3,7 @@ module.exports = {
     aliases: [],
     permissions: ["SEND_MESSAGES"],
     description: "this is a avatar command!",
-    execute(client, message, args, Discord) {
+    execute(message, args, cmd, client, Discord) {
         const member = message.mentions.users.first() || message.author;
         const avatarURL = member.displayAvatarURL({
             format: "png",
